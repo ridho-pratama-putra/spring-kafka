@@ -16,8 +16,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Document
@@ -26,20 +26,19 @@ import java.util.List;
 public class Release {
     @Id
     String id;
-    ReleaseType releaseType;
     String title;
-    CategoryEnum categoryEnum;
+    List<CategoryEnum> category;
+
+    ReleaseType releaseType;
 
     @CreatedBy
     private String createdByUser;
 
     @CreatedDate
-    @JsonSerialize(using = LocalDateTimeSerializer.class)
-    @JsonDeserialize(using = LocalDateTimeDeserializer.class)
     private LocalDateTime creationDate = LocalDateTime.now();
 
     @LastModifiedDate
-    private LocalDateTime lastModifiedDate;
+    private Date lastModifiedDate;
 
     @LastModifiedBy
     private String lastModifiedUserId;

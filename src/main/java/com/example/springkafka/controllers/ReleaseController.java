@@ -17,7 +17,7 @@ public class ReleaseController {
     }
 
     @PostMapping("/album")
-    public ResponseEntity createAlbum(@RequestBody Release release) {
+    public ResponseEntity<Release> createAlbum(@RequestBody Release release) {
         return service.produceTopicNewRelease(release);
     }
 }

@@ -16,4 +16,5 @@ public class Artist {
     @Id
     String id;
     String name;
+    String displayName;
 }

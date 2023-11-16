@@ -15,7 +15,7 @@ public class RecommendationService {
 
     final KafkaTemplate<String, String> template;
 
-    public ResponseEntity<Object> produceTopicNewRelease(Release release) {
+    public ResponseEntity<Release> produceTopicNewRelease(Release release) {
         ObjectMapper objectMapper = new ObjectMapper();
         String message;
         try {

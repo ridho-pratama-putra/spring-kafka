@@ -36,8 +36,23 @@ spec:
             - name: MONGODB_DATABASE
               valueFrom:
                 configMapKeyRef:
-                  name: artist-library-config-map
+                  name: spring-kafka-config-map
                   key: mongodb_db_name
+            - name: BROKER_ENDPOINT
+              valueFrom:
+                secretKeyRef:
+                  name: spring-kafka-secret
+                  key: kafka_broker_endpoint
+            - name: CLUSTER_API_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: spring-kafka-secret
+                  key: kafka_cluster_api_key
+            - name: CLUSTER_API_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: spring-kafka-secret
+                  key: kafka_cluster_api_secret
           resources:
             limits:
               cpu: 300m

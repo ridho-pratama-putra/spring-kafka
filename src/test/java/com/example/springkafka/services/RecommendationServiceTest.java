@@ -20,7 +20,7 @@ public class RecommendationServiceTest {
     RecommendationService recommendationService;
 
     @Test
-    void produceTopicNewRelease_should() {
+    void produceTopicNewRelease_shouldSuccessCallKafka_whenCalled() {
         Release build = Release.builder()
             .artist(Artist.builder().name("endank").displayName("Endank").build())
         .build();

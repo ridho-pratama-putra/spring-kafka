@@ -2,6 +2,7 @@ package com.example.springkafka.controllers;
 
 import com.example.springkafka.models.Release;
 import com.example.springkafka.services.RecommendationService;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,5 +20,6 @@ public class ReleaseController {
     @PostMapping("/album")
     public ResponseEntity<Release> createAlbum(@RequestBody Release release) {
         return service.produceTopicNewRelease(release);
+        // return new ResponseEntity<>(new Release(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }
